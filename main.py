@@ -1,8 +1,10 @@
 import os
+import sys
 import requests
 import random
 import discord
 from dotenv import load_dotenv
+sys.path.append(os.path.abspath("/mgzBaseFolder/mgz/summary"))
 from mgz.summary import Summary
 
 load_dotenv()
