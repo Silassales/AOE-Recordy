@@ -1,5 +1,4 @@
 discord.py
 mgz
 requests
-random
 dotenv
