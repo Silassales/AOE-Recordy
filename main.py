@@ -14,7 +14,16 @@ client = discord.Client()
 civCode = ["Britons", "Franks", "Goths", "Teutons", "Japanese", "Chinese", "Byzantines", "Persian", "Saracens", "Turks", "Vikings", "Mongols", "Celts", "Spanish", "Aztecs", "Mayans", "Huns", "Koreans", "Italians", "Indians", "Incas", "Magyars", "Slav", "Portuguese", "Ethiopians", "Malians", "Berbers", "Khmer", "Malay", "Burmese", "Vietnamese", "Bulgarians", "Tatars", "Cumans", "Lithuanians"]
 
 rndLine = [
-    "Who said mangoes grow on trees? They grow from siege workshops, let me check if you grew some", "Match didn't start in post-imp, so give me some time to watch you get there and I’ll tell you how bad you did soon.","Wait for me, I’m an old bot, it takes me a bit of time to watch your boring game.", "It takes a few seconds for me to watch your game, I have to stop and re-watch every miss-click you make.","Dude, give me a minute to process your game, it made me fall asleep a few times.","error 404: epic mango shot not found. Deleting your account", "are you sure you want others to watch this game?!", "ERROR 42069: Bad_Plays integer overflow", "Current game time: 1h6m24s - Current vill number: 69 - Idle time: indefinite", "I am actually kidnapped, to watch replays and report score, please send help befo-"
+    "Who said mangoes grow on trees? I saw them coming from siege workshops, let me check if you grew some", 
+    "Match didn't start in post-imp, so give me time to watch you get there and I’ll tell you how bad you did soon",
+    "Wait for me, I’m an old bot, it takes me a bit of time to watch your boring game", 
+    "It takes a few seconds for me to watch your game, I have to stop and re-watch every miss-click you make",
+    "Dude, give me a minute to process your game, it made me fall asleep a few times",
+    "error 404: EPIC MANGO SHOT not found. Deleting your account", 
+    "are you sure you want others to watch this game?!", 
+    "Can't keep a count of so many bad plays", 
+    "yo, got an error, can't move past this awful push you made", 
+    "I am actually kidnapped, forced to watch replays and report score, please send help befo-"
 ]
 rndColor = ["yaml", "fix", "css"] #many more to come
 
@@ -23,7 +32,7 @@ async def on_message(msg):
     if msg.attachments:
         if msg.attachments[0].url.endswith("aoe2record"):
             random.seed()
-            replyMsg = "```" + rndColor[random.randint(0,len(rndColor))] + "\n" + rndLine[random.randint(0, len(rndLine))] + "\n```"
+            replyMsg = "```" + rndColor[random.randint(0,len(rndColor)-1)] + "\n" + rndLine[random.randint(0, len(rndLine)-1)] + "\n```"
             await msg.channel.send(replyMsg)
 
             r = requests.get(msg.attachments[0].url)
