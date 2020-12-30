@@ -30,14 +30,14 @@ rndColor = ["yaml", "fix", "css"] #many more to come
 async def sarcasticMsg(msg):
     random.seed()
     replyMsg = "```" + rndColor[random.randint(0,len(rndColor)-1)] + "\n" + rndLine[random.randint(0, len(rndLine)-1)] + "\n```"
-    await msg.channel.send(replyMsg)
+    msg.channel.send(replyMsg)
 
 
 @client.event
 async def on_message(msg):
     if msg.attachments:
         if msg.attachments[0].url.endswith("aoe2record"):
-            sarcasticMsg(msg)
+            await sarcasticMsg(msg)
 
             r = requests.get(msg.attachments[0].url)
             open("currentDLGame.aoe2record", "wb").write(r.content)
