@@ -45,7 +45,7 @@ async def on_message(msg):
                 winnerNames = []
                 winnerCiv = []
                 loserNames = []
-                loserCiv = []a
+                loserCiv = []
                 wTeam = ""
                 lTeam = ""
             for x in allPlayers:
