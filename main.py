@@ -22,7 +22,7 @@ async def on_message(msg):
     if msg.attachments:
         if msg.attachments[0].url.endswith("aoe2record"):
             random.seed()
-            await msg.channel.send(0, random.randint(0, len(randomLines)))
+            await msg.channel.send(randomLines[random.randint(0, len(randomLines))])
 
             r = requests.get(msg.attachments[0].url)
             open("currentDLGame.aoe2record", "wb").write(r.content)
