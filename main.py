@@ -22,7 +22,7 @@ async def on_message(msg):
     if msg.attachments:
         if msg.attachments[0].url.endswith("aoe2record"):
             random.seed()
-            await msg.channel.send(randomLines[random.randint(0, len(randomLines))])
+            await msg.channel.reply(randomLines[random.randint(0, len(randomLines))])
 
             r = requests.get(msg.attachments[0].url)
             open("currentDLGame.aoe2record", "wb").write(r.content)
@@ -69,7 +69,7 @@ async def on_message(msg):
                 embed.add_field(name = "Team 1", value = lTeam, inline = True)
                 embed.add_field(name = "VS", value = "   -   \n"*len(winnerNames), inline = True)
                 embed.add_field(name = "Team 2", value = wTeam, inline = True)
-            await msg.channel.send(embed = embed)
+            await msg.channel.reply(embed = embed)
 
 
 client.run(TOKEN)
