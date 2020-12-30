@@ -33,7 +33,7 @@ async def on_message(msg):
         if msg.attachments[0].url.endswith("aoe2record"):
             random.seed()
             replyMsg = "```" + rndColor[random.randint(0,len(rndColor)-1)] + "\n" + rndLine[random.randint(0, len(rndLine)-1)] + "\n```"
-            msg.channel.send(replyMsg)
+            await msg.channel.send(replyMsg)
 
             r = requests.get(msg.attachments[0].url)
             open("currentDLGame.aoe2record", "wb").write(r.content)
@@ -45,7 +45,7 @@ async def on_message(msg):
                 winnerNames = []
                 winnerCiv = []
                 loserNames = []
-                loserCiv = []
+                loserCiv = []a
                 wTeam = ""
                 lTeam = ""
             for x in allPlayers:
@@ -70,7 +70,7 @@ async def on_message(msg):
                 embed.add_field(name = "Team 1", value = lTeam, inline = True)
                 embed.add_field(name = "VS", value = "   -   \n"*len(winnerNames), inline = True)
                 embed.add_field(name = "Team 2", value = wTeam, inline = True)
-            msg.channel.send(embed = embed)
+            await msg.channel.send(embed = embed)
         else:
             await msg.delete()
             await msg.channel.send("Only Age of Empires 2 replay files allowed in this channel!")
