@@ -27,13 +27,17 @@ rndLine = [
 ]
 rndColor = ["yaml", "fix", "css"] #many more to come
 
+async def sarcasticMsg(msg):
+    random.seed()
+    replyMsg = "```" + rndColor[random.randint(0,len(rndColor)-1)] + "\n" + rndLine[random.randint(0, len(rndLine)-1)] + "\n```"
+    await msg.channel.send(replyMsg)
+
+
 @client.event
 async def on_message(msg):
     if msg.attachments:
         if msg.attachments[0].url.endswith("aoe2record"):
-            random.seed()
-            replyMsg = "```" + rndColor[random.randint(0,len(rndColor)-1)] + "\n" + rndLine[random.randint(0, len(rndLine)-1)] + "\n```"
-            await msg.channel.send(replyMsg)
+            sarcasticMsg(msg)
 
             r = requests.get(msg.attachments[0].url)
             open("currentDLGame.aoe2record", "wb").write(r.content)
@@ -41,13 +45,11 @@ async def on_message(msg):
             with open("currentDLGame.aoe2record", "rb") as data:
                 s = Summary(data)
                 allPlayers = s.get_players()
-                #pSettings = s.get_settings()
                 pMap = s.get_map()
                 winnerNames = []
                 winnerCiv = []
                 loserNames = []
                 loserCiv = []
-                #endString = ""
                 wTeam = ""
                 lTeam = ""
             for x in allPlayers:
@@ -60,15 +62,7 @@ async def on_message(msg):
             for w in range(len(winnerNames)):
                 wTeam += winnerNames[w] + " - " + winnerCiv[w] + "\n"
                 lTeam += loserNames[w] + " - " + loserCiv[w] + "\n"
-                #wCount = len(winnerNames[w] + "as *" + winnerCiv[w]+"*")
-                #wSpace = " " * (40-wCount)
-                #lCount = len(loserNames[w] + "as *" + loserCiv[w]+"*")
-                #lSpace = " " * (40-lCount)
-                #endString += "> " + winnerNames[w] + " - " + winnerCiv[w] + wSpace + "**:**" + lSpace + loserNames[w] + " - " + loserCiv[w] + "\n"
 
-            #print("> Map: **" + str(pMap["name"]) + "**\n>" + "Score:" + " " * 25 + "Won" + " "*25 + "**:**" + 25*" " + "Lost" + 25*" " + "\n" + endString)
-            
-            #await msg.channel.send("> Map: **" + str(pMap["name"]) + "**\n>" + " "*25 + "Won" + " "*25 + "**-**" + " "*25 + "Lost" + " "*25 + "\n" + endString)
             embed = discord.Embed(title = "Map: ||" + str(pMap["name"]) + "||")
             if random.randint(0,1) == 1:
                 embed.add_field(name = "Winner:", value = "||**Team 1**||", inline= False)
