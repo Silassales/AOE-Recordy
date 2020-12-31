@@ -4,26 +4,26 @@ import requests
 import random
 import discord
 from dotenv import load_dotenv
-sys.path.append(os.path.abspath("/mgzBaseFolder/mgz/summary"))
 from mgz.summary import Summary
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
 
-civCode = ["Britons", "Franks", "Goths", "Teutons", "Japanese", "Chinese", "Byzantines", "Persian", "Saracens", "Turks", "Vikings", "Mongols", "Celts", "Spanish", "Aztecs", "Mayans", "Huns", "Koreans", "Italians", "Indians", "Incas", "Magyars", "Slav", "Portuguese", "Ethiopians", "Malians", "Berbers", "Khmer", "Malay", "Burmese", "Vietnamese", "Bulgarians", "Tatars", "Cumans", "Lithuanians"]
+civCode = ["Britons", "Franks", "Goths", "Teutons", "Japanese", "Chinese", "Byzantines", "Persian", "Saracens", "Turks", "Vikings", "Mongols", "Celts", "Spanish", "Aztecs", "Mayans", "Huns", "Koreans", "Italians", "Indians", "Incas", "Magyars", "Slav", "Portuguese", "Ethiopians", "Malians", "Berbers", "Khmer", "Malay", "Burmese", "Vietnamese", "Bulgarians", "Tatars", "Cumans", "Lithuanians", "burgundians", "sicilians"]
 
 rndLine = [
     "Who said mangoes grow on trees? I saw them coming from siege workshops, let me check if you grew some", 
     "Match didn't start in post-imp, so give me time to watch you get there and I’ll tell you how bad you did soon",
-    "Wait for me, I’m an old bot, it takes me a bit of time to watch your boring game", 
+    "Wait for me, I’m an old bot, it takes me a bit of time to watch your long game", 
     "It takes a few seconds for me to watch your game, I have to stop and re-watch every miss-click you make",
     "Dude, give me a minute to process your game, it made me fall asleep a few times",
-    "error 404: EPIC MANGO SHOT not found. Deleting your account", 
-    "are you sure you want others to watch this game?!", 
-    "Can't keep a count of so many bad plays", 
-    "yo, got an error, can't move past this awful push you made", 
-    "I am actually kidnapped, forced to watch replays and report score, please send help befo-"
+    "error 404: EPIC MANGO SHOT not found. Deleting your account...", 
+    "are you sure you want others to watch this game?! I'll edit it as much as I can before FARM-MAN casts it", 
+    "so many bad plays, and I still keep counting them", 
+    "yo, got an error, can't move past this awful push you made, wait until I fix myself", 
+    "I am actually kidnapped, forced to watch replays and report score, please send help befo-",
+    ""
 ]
 rndColor = ["yaml", "fix", "css"] #many more to come
 
