@@ -9,6 +9,9 @@ def get_player_names(summary):
 # ----- Sheets utils ----- #
 
 def get_cell_updated_string(winner, current_val):
+    if current_val == "":
+        return "1-0" if winner else "0-1"
+
     current_val_split = current_val.split("-")
     if winner:
         return str(int(current_val_split[0]) + 1) + "-" + current_val_split[1]
