@@ -23,7 +23,7 @@ credentials = Credentials.from_service_account_file(
     scopes=scopes
 )
 g_client = gspread.authorize(credentials)
-stats_sheet_key="1xgwnOon91pglyU8E0Wu_NOVM4Dwr3yOy3zBjB_YFJ_8"
+stats_sheet_key="1vgpJr4jYziqErWiQvvUx0t_SClaB4C-OCU18aSJ7R20"
 
 civCode = ["Britons", "Franks", "Goths", "Teutons", "Japanese", "Chinese", "Byzantines", "Persian", "Saracens", "Turks", "Vikings", "Mongols", "Celts", "Spanish", "Aztecs", "Mayans", "Huns", "Koreans", "Italians", "Indians", "Incas", "Magyars", "Slav", "Portuguese", "Ethiopians", "Malians", "Berbers", "Khmer", "Malay", "Burmese", "Vietnamese", "Bulgarians", "Tatars", "Cumans", "Lithuanians", "burgundians", "sicilians"]
 
